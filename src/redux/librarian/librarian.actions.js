@@ -1,4 +1,4 @@
-import { ADD_LIBRARIAN, DELETE_LIBRARIAN } from './librarian.types';
+import { ADD_LIBRARIAN, DELETE_LIBRARIAN, EDIT_LIBRARIAN } from './librarian.types';
 
 // const addLibrarian = librarian => {
 //   console.log(librarian)
@@ -13,6 +13,11 @@ const addLibrarian = librarian => ({
   payload: librarian
 })
 
+const editLibrarian = librarian => ({
+  type: EDIT_LIBRARIAN,
+  payload: librarian
+})
+
 const deleteLibrarian = id => ({
   type: DELETE_LIBRARIAN,
   payload: id
@@ -20,6 +25,7 @@ const deleteLibrarian = id => ({
 
 const librarianActions = {
   addLibrarian,
+  editLibrarian,
   deleteLibrarian
 }
 

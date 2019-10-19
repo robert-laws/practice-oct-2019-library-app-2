@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import librarianActions from '../../redux/librarian/librarian.actions';
 
@@ -26,13 +27,18 @@ const Librarians = (props) => {
       <hr />
       <ul>
         {librarians.map(librarian => {
-          return <li key={librarian.id}>{librarian.fullName} <button onClick={() => deleteLibrarian(librarian.id)}>Delete</button></li>
+          return (
+            <li key={librarian.id}>
+              <Link to={`/librarians/${librarian.id}`}>{librarian.fullName}</Link> 
+              <button onClick={() => deleteLibrarian(librarian.id)}>Delete</button>
+            </li>
+          )
         })}
       </ul>
       <hr />
       <div>
         <form onSubmit={handleSubmit}>
-          <label>Librarian Name</label>:{' '}
+          <label>Librarian Name:</label>{' '}
           <input type='text' id='fullName' name='fullName' value={fullName} onChange={handleChange} />{' '}
           <input type='submit' value='Add Librarian' />
         </form>

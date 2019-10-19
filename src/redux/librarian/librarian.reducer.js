@@ -1,4 +1,4 @@
-import { ADD_LIBRARIAN, DELETE_LIBRARIAN } from './librarian.types';
+import { ADD_LIBRARIAN, DELETE_LIBRARIAN, EDIT_LIBRARIAN } from './librarian.types';
 import librariansList from '../../data/librariansList';
 
 const INITIAL_STATE = {
@@ -10,6 +10,18 @@ const librarianReducer = (state = INITIAL_STATE, action) => {
     case ADD_LIBRARIAN:
       state = {
         list: [...state.list, action.payload]
+      }
+      return state;
+    case EDIT_LIBRARIAN:
+      state = {
+        list: state.list.map(item => {
+          if(item.id === action.payload.id) {
+            return {
+              ...item,
+              fullName: action.payload.fullName
+            }
+          } else return item
+        })
       }
       return state;
     case DELETE_LIBRARIAN:
