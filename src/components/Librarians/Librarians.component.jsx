@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import librarianActions from '../../redux/librarian/librarian.actions';
 
 const Librarians = (props) => {
-  const { librarians, addLibrarian } = props;
+  const { librarians, addLibrarian, deleteLibrarian } = props;
+  const [id, setId] = useState(librarians.length + 1)
   const [fullName, setFullName] = useState('');
 
   const handleChange = event => {
@@ -13,8 +14,9 @@ const Librarians = (props) => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    const id = librarians.length + 1;
+
     addLibrarian({id, fullName})
+    setId(id + 1)
     setFullName('')
   }
 
@@ -24,7 +26,7 @@ const Librarians = (props) => {
       <hr />
       <ul>
         {librarians.map(librarian => {
-          return <li key={librarian.id}>{librarian.fullName}</li>
+          return <li key={librarian.id}>{librarian.fullName} <button onClick={() => deleteLibrarian(librarian.id)}>Delete</button></li>
         })}
       </ul>
       <hr />
