@@ -1,0 +1,21 @@
+const courseList = [
+  {'id':'1','term':'Fall 2019','courseNumber':'ARAB-011-70','courseTitle':'Intens 1st Lev Mod Stand Arb I','faculty':'Amer, Alaa Abdelmonem Ghonem'},
+  {'id':'2','term':'Fall 2019','courseNumber':'ARAB-011-71','courseTitle':'Intens 1st Lev Mod Stand Arb I','faculty':'Fazza, Hany'},
+  {'id':'3','term':'Fall 2019','courseNumber':'ARAB-011-72','courseTitle':'Intens 1st Lev Mod Stand Arb I','faculty':'Fazza, Hany'},
+  {'id':'4','term':'Fall 2019','courseNumber':'ARAB-011-72','courseTitle':'Intens 1st Lev Mod Stand Arb I','faculty':'Fazza, Hany'},
+  {'id':'5','term':'Fall 2019','courseNumber':'ARAB-020-70','courseTitle':'Intr Mod Stnd Arab: Heritge Sp','faculty':'Al-Ashiri, Mahmoud'},
+  {'id':'6','term':'Fall 2019','courseNumber':'ARAB-111-70','courseTitle':'Intens 2nd Lvl Md Stnd Arab I','faculty':'Al Hamad, Muntasir'},
+  {'id':'7','term':'Fall 2019','courseNumber':'ARAB-120-70','courseTitle':'Interm Mod Stand Arab:Heritge','faculty':'Al-Ashiri, Mahmoud'},
+  {'id':'8','term':'Fall 2019','courseNumber':'ARAB-120-71','courseTitle':'Interm Mod Stand Arab:Heritge','faculty':'Mohamed, Yehia'},
+  {'id':'9','term':'Fall 2019','courseNumber':'ARAB-215-70','courseTitle':'Intens 3rd Lvl Md Stnd Arab','faculty':'Mohamed, Yehia'},
+  {'id':'10','term':'Fall 2019','courseNumber':'ARAB-220-70','courseTitle':'Adv Mod Std Arabic Heritage Sp','faculty':'Chamseddine, Abdul Rahman M.'},
+  {'id':'11','term':'Fall 2019','courseNumber':'ARAB-220-71','courseTitle':'Adv Mod Std Arabic Heritage Sp','faculty':'Chamseddine, Abdul Rahman M.'},
+  {'id':'12','term':'Fall 2019','courseNumber':'ARAB-220-72','courseTitle':'Adv Mod Std Arabic Heritage Sp','faculty':'Mohamed, Yehia'},
+  {'id':'13','term':'Fall 2019','courseNumber':'ARAB-281-70','courseTitle':'Religious Discourse','faculty':'Zabarah, Hana'},
+  {'id':'14','term':'Fall 2019','courseNumber':'ARAB-308-70','courseTitle':'Topics in the Arab World II','faculty':'Chamseddine, Abdul Rahman M.'},
+  {'id':'15','term':'Fall 2019','courseNumber':'ARAB-340-70','courseTitle':'Arabic Drama','faculty':'Khalifah, Omar'},
+  {'id':'16','term':'Fall 2019','courseNumber':'ARAB-403-70','courseTitle':'Islam &Arab Cult in Golden Age','faculty':'Zabarah, Hana'},
+  {'id':'17','term':'Fall 2019','courseNumber':'CULP-045-70','courseTitle':'Theorizing Cult and Politics','faculty':'Abusharaf, Rogaia'},
+  {'id':'18','term':'Fall 2019','courseNumber':'CULP-312-70','courseTitle':'Film and Memory','faculty':'Khalifah, Omar'},
+  {'id':'19','term':'Fall 2019','courseNumber':'CULP-349-70','courseTitle':'CULP Honors Seminar','faculty':'Sonbol, Amira E.'}
+];
