@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import librarianActions from '../../redux/librarian/librarian.actions';
+import { editLibrarian } from '../../redux/librarian/librarian.actions';
 
 const EditLibrarian = (props) => {
-  const { librarian, editLibrarian } = props;
+  const { librarian, onEditLibrarian } = props;
   const [id] = useState(librarian.id);
   const [fullName, setFullName] = useState(librarian.fullName)
 
@@ -16,7 +16,7 @@ const EditLibrarian = (props) => {
   const handleSubmit = event => {
     event.preventDefault();
 
-    editLibrarian({id, fullName})
+    onEditLibrarian({id, fullName})
 
     props.history.push('/librarians');
   }
@@ -42,8 +42,10 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-const mapDispatchToProps = {
-  ...librarianActions
+const mapDispatchToProps = dispatch => {
+  return {
+    onEditLibrarian: librarian => dispatch(editLibrarian(librarian))
+  }
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(EditLibrarian));

@@ -8,7 +8,7 @@ import rootReducer from './redux/root-reducer';
 
 import App from './App';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'semantic-ui-css/semantic.min.css'
 
 const logger = createLogger();
 const store = createStore(rootReducer, applyMiddleware(logger));

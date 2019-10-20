@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import librarianActions from '../../redux/librarian/librarian.actions';
+import { addLibrarian, deleteLibrarian } from '../../redux/librarian/librarian.actions';
 
 const Librarians = (props) => {
-  const { librarians, addLibrarian, deleteLibrarian } = props;
+  const { librarians, onAddLibrarian, onDeleteLibrarian } = props;
   const [id, setId] = useState(librarians.length + 1)
   const [fullName, setFullName] = useState('');
 
@@ -16,7 +16,7 @@ const Librarians = (props) => {
   const handleSubmit = event => {
     event.preventDefault();
 
-    addLibrarian({id, fullName})
+    onAddLibrarian({id, fullName})
     setId(id + 1)
     setFullName('')
   }
@@ -30,7 +30,7 @@ const Librarians = (props) => {
           return (
             <li key={librarian.id}>
               <Link to={`/librarians/${librarian.id}`}>{librarian.fullName}</Link> 
-              <button onClick={() => deleteLibrarian(librarian.id)}>Delete</button>
+              <button onClick={() => onDeleteLibrarian(librarian.id)}>Delete</button>
             </li>
           )
         })}
@@ -47,8 +47,11 @@ const Librarians = (props) => {
   )
 }
 
-const mapDispatchToProps = {
-  ...librarianActions
+const mapDispatchToProps = dispatch => {
+  return {
+    onAddLibrarian: librarian => dispatch(addLibrarian(librarian)),
+    onDeleteLibrarian: id => dispatch(deleteLibrarian(id))
+  }
 }
 
 const mapStateToProps = state => {

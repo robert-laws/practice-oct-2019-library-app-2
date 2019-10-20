@@ -2,28 +2,36 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { buildLesson } from '../../redux/lessonPlan/lessonPlan.actions';
 
+import { Grid, Form } from 'semantic-ui-react';
+
+import courses from '../../data/courses';
+
 class LessonForm extends Component {
 
   render() {
     const { onAddClassContent, name, code, term } = this.props;
 
     return (
-      <div>
-        <p>
-          Term: 
-          <select name='term' value={term} onChange={onAddClassContent}>
-            <option value=''>Select a Term</option>
-            <option value='Fall 2019'>Fall 2019</option>
-            <option value='Spring 2020'>Spring 2020</option>
-          </select>
-        </p>
-        <p>
-          Class Name: <input type='text' name='name' id='name' value={name} onChange={onAddClassContent} />
-        </p>
-        <p>
-          Class Code: <input type='text' name='code' id='code' value={code} onChange={onAddClassContent} />
-        </p>
-      </div>
+      <Grid columns={1}>
+        <Grid.Column>
+          <Form>
+            <Form.Select label='Term' placeholder='Term' name='term' options={
+              [
+                { key: 'fall', text: 'Fall 2019', value: 'Fall 2019' },
+                { key: 'spring', text: 'Spring 2020', value: 'Spring 2020' }
+              ]
+            } value={term} onChange={onAddClassContent} />
+            <Form.Field>
+              <Form.Input label='Course Name' placeholder='Course Name' name='name' id='name' value={name} onChange={onAddClassContent} />
+            </Form.Field>
+            <Form.Select label='Course Code' placeholder='Course Code' name='code' id='code' options={         
+              courses.map(course => {
+                return { key: course.id, text: course.courseNumber, value: course.courseNumber }
+              })
+            } value={code} onChange={onAddClassContent} />
+          </Form>
+        </Grid.Column>
+      </Grid>
     )
   }
 }
@@ -38,7 +46,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onAddClassContent: event => dispatch(buildLesson(event.target.name, event.target.value))
+    onAddClassContent: (event, { name, value}) => dispatch(buildLesson(name, value))
   }
 }
 

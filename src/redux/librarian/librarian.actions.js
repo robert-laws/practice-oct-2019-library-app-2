@@ -8,25 +8,17 @@ import { ADD_LIBRARIAN, DELETE_LIBRARIAN, EDIT_LIBRARIAN } from './librarian.typ
 //   })
 // }
 
-const addLibrarian = librarian => ({
+export const addLibrarian = librarian => ({
   type: ADD_LIBRARIAN,
   payload: librarian
 })
 
-const editLibrarian = librarian => ({
+export const editLibrarian = librarian => ({
   type: EDIT_LIBRARIAN,
   payload: librarian
 })
 
-const deleteLibrarian = id => ({
+export const deleteLibrarian = id => ({
   type: DELETE_LIBRARIAN,
   payload: id
 })
-
-const librarianActions = {
-  addLibrarian,
-  editLibrarian,
-  deleteLibrarian
-}
-
-export default librarianActions;
